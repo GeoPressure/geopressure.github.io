@@ -1,5 +1,24 @@
-# GeoPressure Website
+# GeoPressure
 
-Main website for the GeoPressure umbrella project.
+Website for the GeoPressure project suite.
 
-This repository powers `https://geopressure.org` and links all GeoPressure / GeoLocator subprojects from a single landing page.
+## URL
+
+https://geopressure.org
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+```
+
+## Deployment
+
+Deployed via GitHub Actions to GitHub Pages.

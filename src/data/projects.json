@@ -1,0 +1,85 @@
+{
+  "generatedAt": "2026-03-20",
+  "projects": [
+    {
+      "name": "GeoPressureR",
+      "description": "R package for global positioning by atmospheric pressure.",
+      "logo": "/logos/geopressurer-360.png",
+      "doi": "https://doi.org/10.5281/zenodo.7754457",
+      "homepage": "https://raphaelnussbaumer.com/GeoPressureR/",
+      "github": "https://github.com/Rafnuss/GeoPressureR"
+    },
+    {
+      "name": "GeoPressureManual",
+      "description": "User guide for learning how to use GeoPressureR and related resources.",
+      "logo": "/logos/geopressuremanual-360.png",
+      "doi": "https://doi.org/10.5281/zenodo.10799355",
+      "homepage": "https://raphaelnussbaumer.com/GeoPressureManual/",
+      "github": "https://github.com/Rafnuss/GeoPressureManual"
+    },
+    {
+      "name": "GeoLocatorExplorer",
+      "description": "A playful map visualizing tracks of migratory birds based on geolocator data.",
+      "logo": "/logos/geolocatorexplorer.svg",
+      "doi": null,
+      "homepage": "https://raphaelnussbaumer.com/GeoLocatorExplorer/",
+      "github": "https://github.com/Rafnuss/GeoLocatorExplorer"
+    },
+    {
+      "name": "GeoPressureTemplate",
+      "description": "Template repository to analyse multi-sensor geolocator data with GeoPressureR.",
+      "logo": "/logos/geopressuretemplate.svg",
+      "doi": null,
+      "homepage": "https://raphaelnussbaumer.com/GeoPressureManual/geopressuretemplate-intro.html",
+      "github": "https://github.com/Rafnuss/GeoPressureTemplate"
+    },
+    {
+      "name": "GeoLocator-DP",
+      "description": "Data exchange format for geolocator data.",
+      "logo": "/logos/geolocator-dp.svg",
+      "doi": "https://doi.org/10.5281/zenodo.14258411",
+      "homepage": "https://raphaelnussbaumer.com/GeoLocator-DP/",
+      "github": "https://github.com/Rafnuss/GeoLocator-DP"
+    },
+    {
+      "name": "GeoLocatoR",
+      "description": "R package to facilitate the creation, use, and sharing of your geolocator datapackage.",
+      "logo": "/logos/geolocator.png",
+      "doi": "https://doi.org/10.5281/zenodo.14670776",
+      "homepage": "https://raphaelnussbaumer.com/GeoLocatoR/",
+      "github": "https://github.com/Rafnuss/GeoLocatoR"
+    },
+    {
+      "name": "GeoMag",
+      "description": "R package for geolocation by magnetic field.",
+      "logo": "/logos/geomag.svg",
+      "doi": null,
+      "homepage": "https://raphaelnussbaumer.com/GeoMag/",
+      "github": "https://github.com/Rafnuss/GeoMag"
+    },
+    {
+      "name": "GeoPressureAPI",
+      "description": "JSON API to compute mismatch of pressure timeseries with ERA-5 on Google Earth Engine.",
+      "logo": "/logos/geopressureapi.svg",
+      "doi": null,
+      "homepage": "https://github.com/Rafnuss/GeoPressureAPI",
+      "github": "https://github.com/Rafnuss/GeoPressureAPI"
+    },
+    {
+      "name": "GeoPressureLabel",
+      "description": "Labeling workflow repository for GeoPressure data.",
+      "logo": "/logos/geopressurelabel.svg",
+      "doi": null,
+      "homepage": "https://github.com/Rafnuss/GeoPressureLabel",
+      "github": "https://github.com/Rafnuss/GeoPressureLabel"
+    },
+    {
+      "name": "GeoPressureMAT",
+      "description": "Legacy MATLAB-era geolocation resources and examples.",
+      "logo": "/logos/geopressuremat.svg",
+      "doi": null,
+      "homepage": "https://github.com/Rafnuss/GeoPressureMAT",
+      "github": "https://github.com/Rafnuss/GeoPressureMAT"
+    }
+  ]
+}
