@@ -2,10 +2,6 @@
 
 Website for the GeoPressure project suite.
 
-## URL
-
-https://geopressure.org
-
 ## Development
 
 ```bash
@@ -18,7 +14,3 @@ npm run dev
 ```bash
 npm run build
 ```
-
-## Deployment
-
-Deployed via GitHub Actions to GitHub Pages.

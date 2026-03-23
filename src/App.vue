@@ -11,9 +11,29 @@ const starsByRepo = ref({});
 
 const GITHUB_REPO_REGEX = /^https?:\/\/github\.com\/([^/]+)\/([^/#?]+)/;
 const numberFormatter = new Intl.NumberFormat("en-US");
+const DEFAULT_PROJECT_LOGO = "/logos/geopressure-512.png";
 
 const normalizeText = (value) => {
   return typeof value === "string" ? value.trim() : "";
+};
+
+const getProjectLogo = (project) => {
+  const logo = normalizeText(project.logo);
+  return logo || DEFAULT_PROJECT_LOGO;
+};
+
+const handleLogoError = (event) => {
+  const image = event.target;
+  if (!(image instanceof HTMLImageElement)) {
+    return;
+  }
+
+  if (image.dataset.fallbackApplied === "true") {
+    return;
+  }
+
+  image.dataset.fallbackApplied = "true";
+  image.src = DEFAULT_PROJECT_LOGO;
 };
 
 const getProjectHomepage = (project) => {
@@ -145,11 +165,19 @@ onMounted(() => {
       class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"
     >
       <div>
-        <h1
-          class="font-serif text-5xl leading-tight text-slate-900 sm:text-6xl"
-        >
-          GeoPressure Suite
-        </h1>
+        <div class="brand-title">
+          <img
+            src="/logos/geopressure-512.png"
+            alt="GeoPressure logo"
+            class="site-logo"
+            decoding="async"
+          />
+          <h1
+            class="font-serif text-5xl leading-tight text-slate-900 sm:text-6xl"
+          >
+            GeoPressure Suite
+          </h1>
+        </div>
         <p class="mt-3 max-w-2xl text-base leading-7 text-slate-600">
           Open tools and shared standards for studying bird movement with
           multi-sensor geolocators, from data formats to analysis and
@@ -198,10 +226,11 @@ onMounted(() => {
             </a>
 
             <img
-              :src="entry.project.logo"
+              :src="getProjectLogo(entry.project)"
               :alt="`${entry.project.name} logo`"
               class="logo-image"
               loading="lazy"
+              @error="handleLogoError"
             />
 
             <div class="flex items-start justify-between gap-3">

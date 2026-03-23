@@ -87,6 +87,20 @@ a {
   gap: 0.5rem;
 }
 
+.brand-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.site-logo {
+  height: 3.25rem;
+  width: 3.25rem;
+  flex: none;
+  object-fit: contain;
+}
+
 .logo-image {
   height: 8rem;
   width: 100%;
@@ -223,6 +237,11 @@ a {
   .sm\:flex-row { flex-direction: row; }
   .sm\:items-start { align-items: flex-start; }
   .sm\:justify-between { justify-content: space-between; }
+
+  .site-logo {
+    height: 3.75rem;
+    width: 3.75rem;
+  }
 }
 
 @media (min-width: 1024px) {
