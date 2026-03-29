@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, ref } from "vue";
+import { computed, ref } from "vue";
 import catalog from "./data/projects.json";
 
 const projects = ref(
@@ -7,11 +7,8 @@ const projects = ref(
     ? catalog.projects
     : (catalog.categories ?? []).flatMap((category) => category.projects ?? []),
 );
-const starsByRepo = ref({});
-
-const GITHUB_REPO_REGEX = /^https?:\/\/github\.com\/([^/]+)\/([^/#?]+)/;
 const numberFormatter = new Intl.NumberFormat("en-US");
-const DEFAULT_PROJECT_LOGO = "/logos/geopressure-512.png";
+const DEFAULT_PROJECT_LOGO = "/logos/geopressure.png";
 
 const normalizeText = (value) => {
   return typeof value === "string" ? value.trim() : "";
@@ -51,31 +48,8 @@ const getProjectGithub = (project) => {
   return github || null;
 };
 
-const getRepoPathFromUrl = (url) => {
-  const match = normalizeText(url).match(GITHUB_REPO_REGEX);
-  if (!match) {
-    return null;
-  }
-
-  const owner = match[1];
-  const repo = match[2].replace(/\.git$/i, "");
-  return `${owner}/${repo}`;
-};
-
-const getProjectRepoPath = (project) => {
-  return getRepoPathFromUrl(
-    getProjectGithub(project) ?? getProjectHomepage(project),
-  );
-};
-
 const getProjectStars = (project) => {
-  const repoPath = getProjectRepoPath(project);
-  if (!repoPath) {
-    return null;
-  }
-
-  const stars = starsByRepo.value[repoPath];
-  return typeof stars === "number" ? stars : null;
+  return Number.isFinite(project.stars) ? project.stars : null;
 };
 
 const allProjects = computed(() => {
@@ -85,14 +59,6 @@ const allProjects = computed(() => {
         key: `${project.name}-${index}`,
         project,
       };
-    })
-    .sort((a, b) => {
-      const starsA = getProjectStars(a.project);
-      const starsB = getProjectStars(b.project);
-      const rankA = starsA === null ? -1 : starsA;
-      const rankB = starsB === null ? -1 : starsB;
-
-      return rankB - rankA;
     });
 });
 
@@ -101,62 +67,6 @@ const totalProjects = computed(() => allProjects.value.length);
 const formatStars = (value) => {
   return numberFormatter.format(value);
 };
-
-const loadStars = async () => {
-  const repoPaths = [
-    ...new Set(
-      projects.value
-        .map((project) => getProjectRepoPath(project))
-        .filter(Boolean),
-    ),
-  ];
-
-  if (repoPaths.length === 0) {
-    return;
-  }
-
-  const results = await Promise.all(
-    repoPaths.map(async (repoPath) => {
-      try {
-        const response = await fetch(
-          `https://api.github.com/repos/${repoPath}`,
-          {
-            headers: {
-              Accept: "application/vnd.github+json",
-            },
-          },
-        );
-
-        if (!response.ok) {
-          return [repoPath, null];
-        }
-
-        const repo = await response.json();
-        return [
-          repoPath,
-          typeof repo.stargazers_count === "number"
-            ? repo.stargazers_count
-            : null,
-        ];
-      } catch {
-        return [repoPath, null];
-      }
-    }),
-  );
-
-  const nextStars = {};
-  for (const [repoPath, stars] of results) {
-    if (typeof stars === "number") {
-      nextStars[repoPath] = stars;
-    }
-  }
-
-  starsByRepo.value = nextStars;
-};
-
-onMounted(() => {
-  void loadStars();
-});
 </script>
 
 <template>
@@ -167,7 +77,7 @@ onMounted(() => {
       <div>
         <div class="brand-title">
           <img
-            src="/logos/geopressure-512.png"
+            src="/logos/geopressure.png"
             alt="GeoPressure logo"
             class="site-logo"
             decoding="async"
