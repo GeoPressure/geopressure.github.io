@@ -48,18 +48,22 @@ const getProjectGithub = (project) => {
   return github || null;
 };
 
+const getProjectStargazers = (project) => {
+  const github = getProjectGithub(project);
+  return github ? `${github.replace(/\/$/, "")}/stargazers` : null;
+};
+
 const getProjectStars = (project) => {
   return Number.isFinite(project.stars) ? project.stars : null;
 };
 
 const allProjects = computed(() => {
-  return projects.value
-    .map((project, index) => {
-      return {
-        key: `${project.name}-${index}`,
-        project,
-      };
-    });
+  return projects.value.map((project, index) => {
+    return {
+      key: `${project.name}-${index}`,
+      project,
+    };
+  });
 });
 
 const totalProjects = computed(() => allProjects.value.length);
@@ -121,7 +125,9 @@ const formatStars = (value) => {
             rel="noopener noreferrer"
             class="card-overlay"
             :aria-label="`Open ${entry.project.name}`"
-          ></a>
+          >
+            <span class="sr-only">{{ entry.project.name }}</span>
+          </a>
 
           <div class="card-content">
             <a
@@ -145,17 +151,28 @@ const formatStars = (value) => {
 
             <div class="flex items-start justify-between gap-3">
               <h3 class="text-xl font-semibold text-slate-900">
-                {{ entry.project.name }}
+                <a
+                  :href="getProjectHomepage(entry.project)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="card-title-link card-sub-link"
+                >
+                  {{ entry.project.name }}
+                </a>
               </h3>
 
               <div class="flex items-center">
-                <span
+                <a
                   v-if="getProjectStars(entry.project) !== null"
+                  :href="getProjectStargazers(entry.project)"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="inline-flex items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-[11px] font-medium text-amber-700"
+                  :aria-label="`View ${entry.project.name} stargazers on GitHub`"
                 >
                   <i class="bi bi-star-fill text-[10px]" aria-hidden="true"></i>
                   {{ formatStars(getProjectStars(entry.project)) }}
-                </span>
+                </a>
               </div>
             </div>
 
