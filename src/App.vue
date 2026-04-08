@@ -68,6 +68,29 @@ const allProjects = computed(() => {
 
 const totalProjects = computed(() => allProjects.value.length);
 
+const faqItems = [
+  {
+    question: "What is GeoPressure?",
+    answerHtml:
+      "GeoPressure is an open-source suite for researchers studying bird migration with multi-sensor geolocators that include atmospheric pressure data. It helps reconstruct bird trajectories from geolocator measurements.",
+  },
+  {
+    question: "Where should I start?",
+    answerHtml:
+      'Start with the <a href="https://geopressure.org/GeoPressureManual/" target="_blank" rel="noopener noreferrer">GeoPressureManual</a> if you want to learn how the workflow works and how to start your analysis. If you are interested in visualizing or downloading example data, check out the <a href="https://geopressure.org/GeoLocatorExplorer/" target="_blank" rel="noopener noreferrer">GeoLocatorExplorer</a>.',
+  },
+  {
+    question: "What data are required for analysis?",
+    answerHtml:
+      'The core requirement for <a href="https://geopressure.org/GeoPressureR/" target="_blank" rel="noopener noreferrer">GeoPressureR</a> is a continuous pressure time series from a geolocator, ideally sampled at better than 1-hour resolution. Acceleration, light data, and known deployment or retrieval locations can also help in specific parts of the workflow.',
+  },
+  {
+    question: "What is the difference between GeoPressureR and GeoLocatoR?",
+    answerHtml:
+      '<a href="https://geopressure.org/GeoPressureR/" target="_blank" rel="noopener noreferrer">GeoPressureR</a> is the main analysis R package for project-level pressure-based geolocation and trajectory modeling. <a href="https://raphaelnussbaumer.com/GeoLocatoR/" target="_blank" rel="noopener noreferrer">GeoLocatoR</a> is an R package for tag-level data packaging, handling, and sharing through GeoLocator Data Packages. Use GeoLocatoR to organize and standardize geolocator data, and GeoPressureR to run the analysis.',
+  },
+];
+
 const formatStars = (value) => {
   return numberFormatter.format(value);
 };
@@ -182,7 +205,26 @@ const formatStars = (value) => {
           </div>
         </article>
       </div>
-
+      <section class="faq-section">
+        <div class="faq-header">
+          <h2 class="font-serif text-5xl text-slate-900">FAQ</h2>
+        </div>
+        <div class="faq-grid">
+          <article
+            v-for="item in faqItems"
+            :key="item.question"
+            class="faq-item"
+          >
+            <h3 class="text-base font-semibold text-slate-900">
+              {{ item.question }}
+            </h3>
+            <p
+              class="text-sm leading-relaxed text-slate-600 faq-answer"
+              v-html="item.answerHtml"
+            ></p>
+          </article>
+        </div>
+      </section>
     </main>
 
     <footer class="mt-10 flex justify-center border-t border-slate-200 pt-6">
