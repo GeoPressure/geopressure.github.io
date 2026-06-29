@@ -225,16 +225,60 @@ const formatStars = (value) => {
           </article>
         </div>
       </section>
+
+      <section
+        class="hero-banner-section"
+        aria-labelledby="collaboration-title"
+      >
+        <div class="hero-banner">
+        <div class="hero-banner-media">
+          <img
+            src="/hero.avif"
+            alt="Bird tracking fieldwork"
+            class="hero-banner-image"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="hero-banner-copy">
+          <div class="space-y-3">
+            <h2
+              id="collaboration-title"
+              class="font-serif text-5xl hero-banner-title"
+            >
+              Interested in collaborating?
+            </h2>
+            <p class="text-base leading-7 hero-banner-text">
+              The Swiss Ornithological Institute supports selected bird
+              tracking projects that expand global knowledge of bird migration
+              by tracking under-studied species and regions.
+            </p>
+          </div>
+
+          <div>
+            <a
+              href="https://geopressure.org/GeoCollabForm/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hero-cta"
+            >
+              Apply to collaboration
+            </a>
+          </div>
+        </div>
+        </div>
+      </section>
     </main>
 
     <footer class="mt-10 flex justify-center border-t border-slate-200 pt-6">
       <a
-        href="https://www.vogelwarte.ch/en/"
+        href="https://www.vogelwarte.ch/en/projects/geocollab/"
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-3 text-center text-slate-600 transition hover:text-slate-900"
       >
-        <span class="text-xs uppercase tracking-wide">Supported by</span>
+        <span class="text-xs uppercase tracking-wide">supported by</span>
         <img
           src="https://www.vogelwarte.ch/wp-content/uploads/2023/10/logo.svg"
           alt="Swiss Ornithological Institute (Vogelwarte) logo"
