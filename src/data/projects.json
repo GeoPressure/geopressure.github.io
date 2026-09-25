@@ -281,35 +281,6 @@
       "hasProjects": false,
       "hasDiscussions": false,
       "hasIssues": true
-    },
-    {
-      "name": "GeoPressureLabel",
-      "description": "",
-      "logo": "/logos/geopressure.png",
-      "homepage": "https://github.com/GeoPressure/GeoPressureLabel",
-      "github": "https://github.com/GeoPressure/GeoPressureLabel",
-      "stars": 0,
-      "fullName": "GeoPressure/GeoPressureLabel",
-      "owner": "GeoPressure",
-      "repo": "GeoPressureLabel",
-      "topics": [],
-      "language": "Jupyter Notebook",
-      "license": null,
-      "defaultBranch": "main",
-      "openIssues": 0,
-      "forks": 0,
-      "watchers": 0,
-      "sizeKb": 396,
-      "createdAt": "2025-09-06T11:50:23Z",
-      "updatedAt": "2026-03-29T06:45:36Z",
-      "pushedAt": "2025-09-06T22:11:38Z",
-      "visibility": "public",
-      "isTemplate": false,
-      "hasPages": false,
-      "hasWiki": true,
-      "hasProjects": false,
-      "hasDiscussions": false,
-      "hasIssues": true
     }
   ]
 }

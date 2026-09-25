@@ -11,6 +11,7 @@ const EXCLUDED_REPOS = new Set([
   "geopressure.github.io",
   "GeoCollabForm",
   "GeoLocatorMaster",
+  "GeoPressureLabel",
 ]);
 
 const normalizeKey = (value) => {
