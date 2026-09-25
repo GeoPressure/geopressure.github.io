@@ -6,7 +6,12 @@ const API_BASE = "https://api.github.com";
 const DEFAULT_LOGO = "/logos/geopressure.png";
 const OUTPUT_FILE = path.resolve("src/data/projects.json");
 const LOGO_DIR = path.resolve("public/logos");
-const EXCLUDED_REPOS = new Set([".github", "geopressure.github.io"]);
+const EXCLUDED_REPOS = new Set([
+  ".github",
+  "geopressure.github.io",
+  "GeoCollabForm",
+  "GeoLocatorMaster",
+]);
 
 const normalizeKey = (value) => {
   return String(value ?? "")
