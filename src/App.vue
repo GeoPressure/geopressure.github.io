@@ -77,7 +77,7 @@ const faqItems = [
   {
     question: "Where should I start?",
     answerHtml:
-      'Start with the <a href="https://geopressure.org/GeoPressureManual/" target="_blank" rel="noopener noreferrer">GeoPressureManual</a> if you want to learn how the workflow works and how to start your analysis. If you are interested in visualizing or downloading example data, check out the <a href="https://geopressure.org/GeoLocatorExplorer/" target="_blank" rel="noopener noreferrer">GeoLocatorExplorer</a>.',
+      'Start with the <a href="https://geopressure.org/GeoPressureManual/" target="_blank" rel="noopener noreferrer">GeoPressureManual</a> if you want to learn how the workflow works and how to start your analysis. If you are interested in visualizing or downloading example data, check out the <a href="https://geopressure.org/GeoLocatorExplorer/" target="_blank" rel="noopener noreferrer">GeoLocatorExplorer</a>. For questions, ideas, or help with your analysis, join the <a href="https://geopressure.discourse.group" target="_blank" rel="noopener noreferrer">GeoPressure forum</a>.',
   },
   {
     question: "What data are required for analysis?",
@@ -110,7 +110,7 @@ const formatStars = (value) => {
             decoding="async"
           />
           <h1
-            class="font-serif text-5xl leading-tight text-slate-900 sm:text-6xl"
+            class="font-serif text-5xl font-bold leading-tight text-slate-900 sm:text-6xl sm:leading-none"
           >
             GeoPressure Suite
           </h1>
@@ -121,12 +121,21 @@ const formatStars = (value) => {
           visualization workflows.
         </p>
       </div>
-      <div class="sm:pt-1">
+      <div class="flex flex-wrap gap-2 sm:justify-end sm:pt-1">
+        <a
+          href="https://geopressure.discourse.group"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+        >
+          <i class="bi bi-chat-dots text-[14px]" aria-hidden="true"></i>
+          <span>Community forum</span>
+        </a>
         <a
           href="https://github.com/GeoPressure"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+          class="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
         >
           <i class="bi bi-github text-[14px]" aria-hidden="true"></i>
           <span>GeoPressure on GitHub</span>
@@ -207,7 +216,7 @@ const formatStars = (value) => {
       </div>
       <section class="faq-section">
         <div class="faq-header">
-          <h2 class="font-serif text-5xl text-slate-900">FAQ</h2>
+          <h2 class="font-serif text-5xl font-bold text-slate-900">FAQ</h2>
         </div>
         <div class="faq-grid">
           <article
@@ -245,7 +254,7 @@ const formatStars = (value) => {
           <div class="space-y-3">
             <h2
               id="collaboration-title"
-              class="font-serif text-5xl hero-banner-title"
+              class="font-serif text-5xl font-bold hero-banner-title"
             >
               Interested in collaborating?
             </h2>
