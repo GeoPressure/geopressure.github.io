@@ -12,6 +12,7 @@ const EXCLUDED_REPOS = new Set([
   "GeoCollabForm",
   "GeoLocatorMaster",
   "GeoPressureLabel",
+  "altitude-validation",
 ]);
 
 const normalizeKey = (value) => {
