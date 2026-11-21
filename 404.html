@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Page not found · GeoPressure</title>
+<meta name="robots" content="noindex">
+<script>
+  // Renamed project sites: send old addresses to the new ones, keeping the rest of the path.
+  (function () {
+    var moved = { "/bird-models/": "/GeoBirdModel/" };
+    var p = location.pathname;
+    for (var from in moved) {
+      if (p.indexOf(from) === 0) {
+        location.replace(moved[from] + p.slice(from.length) + location.search + location.hash);
+        return;
+      }
+    }
+  })();
+</script>
+<style>body{font:16px/1.5 system-ui,sans-serif;margin:15vh auto;max-width:36rem;padding:0 1rem;color:#1b2230}</style>
+</head>
+<body>
+<h1>Page not found</h1>
+<p>This page doesn't exist. Go to <a href="/">geopressure.org</a>.</p>
+</body>
+</html>
